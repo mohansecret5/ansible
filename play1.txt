@@ -1,0 +1,29 @@
+---
+#play1 - webservers apache installation and version checking
+
+-name: playbook1
+
+ host: webservers
+
+ become: yes
+ become_user: root
+ tasks: ensure apache is at the latest version
+
+ yum: 
+
+   name: httpd
+   
+   state: latest
+
+ -name: install httpd
+  
+  name: httpd
+  state: installed
+
+
+ -name: ensure apache is running
+
+  service:
+
+   name: start
+   state: started
